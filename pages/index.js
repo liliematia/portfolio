@@ -28,9 +28,9 @@ export default function Home({ allPostsData }) {
             <Typist.Backspace count={17} delay={300} />
             <span>puppy mom</span>
             <Typist.Backspace count={9} delay={300} />
-            <span>really good at taking two sips of coffee and then letting it go cold</span>
-            <Typist.Backspace count={68} delay={300} />
-            <span>amateur writer, oaccasional a photo taker</span>
+            <span>queen of the chemex</span>
+            <Typist.Backspace count={19} delay={300} />
+            <span>amateur writer, occasional photo taker</span>
             <Typist.Backspace count={41} delay={300} />
             <span>improver</span>
             <Typist.Backspace count={8} delay={300} />
