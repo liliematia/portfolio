@@ -30,8 +30,8 @@ export default function Home({ allPostsData }) {
             <Typist.Backspace count={9} delay={300} />
             <span>queen of the chemex</span>
             <Typist.Backspace count={19} delay={300} />
-            <span>amateur writer, occasional photo taker</span>
-            <Typist.Backspace count={41} delay={300} />
+            <span>aspiring minimalist</span>
+            <Typist.Backspace count={19} delay={300} />
             <span>improver</span>
             <Typist.Backspace count={8} delay={300} />
             <span>musician</span>

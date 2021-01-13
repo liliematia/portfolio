@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Lilie Matia'
+const name = 'LILIE MATIA'
 export const siteTitle = 'lilie.codes'
 
 export default function Layout({ children, home }) {
@@ -32,7 +32,13 @@ export default function Layout({ children, home }) {
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <Link href="/about">
+              <a className={utilStyles.bigLink}>
+                <h1 className={utilStyles.heading2Xl}>
+                  {name}
+                </h1>
+              </a>
+            </Link>
           </>
         ) : (
           <>
@@ -46,7 +52,7 @@ export default function Layout({ children, home }) {
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
+              <Link href="/about">
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
