@@ -6,6 +6,7 @@ import Link from "next/link";
 import Typist from "react-typist";
 import utilStyles from "../styles/utils.module.css";
 
+import React, { useState } from "react";
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -16,6 +17,9 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  // Sets the initial state of the homepage to show the Blog
+  const [nav, setNav] = useState("blog");
+
   return (
     <Layout home>
       <Head>
@@ -41,20 +45,41 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <section className={utilStyles.navbar}>
+          <Link href={""}>
+            <a className={utilStyles.bigLink} onClick={() => setNav("blog")}>
+              <h2 className={utilStyles.headingLg}>Blog</h2>
+            </a>
+          </Link>
+          <Link href={""}>
+            <a
+              className={utilStyles.bigLink}
+              onClick={() => setNav("camera-roll")}
+            >
+              <h2 className={utilStyles.headingLg}>Camera roll</h2>
+            </a>
+          </Link>
+        </section>
+        {console.log(nav)}
+        {nav === "blog" ? (
+          <ul className={utilStyles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <small className={utilStyles.lightText}>
+            A placeholder for a camera roll that's in the works.
+          </small>
+        )}
       </section>
     </Layout>
   );
