@@ -23,6 +23,16 @@ export async function getStaticProps() {
 export default function Home({ allPostsData, allCameraRollImages }) {
   // Sets the initial state of the homepage to show the Blog
   const [nav, setNav] = useState("blog");
+  const navItems = [
+    {
+      title: "Blog",
+      state: "blog",
+    },
+    {
+      title: "Camera Roll",
+      state: "camera-roll",
+    },
+  ];
 
   return (
     <Layout home>
@@ -50,19 +60,20 @@ export default function Home({ allPostsData, allCameraRollImages }) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <section className={utilStyles.navbar}>
-          <Link href={""}>
-            <a className={utilStyles.bigLink} onClick={() => setNav("blog")}>
-              <h2 className={utilStyles.headingLg}>Blog</h2>
-            </a>
-          </Link>
-          <Link href={""}>
-            <a
-              className={utilStyles.bigLink}
-              onClick={() => setNav("camera-roll")}
-            >
-              <h2 className={utilStyles.headingLg}>Camera roll</h2>
-            </a>
-          </Link>
+          {navItems.map(({ title, state }) => (
+            <Link href={""}>
+              <a
+                className={utilStyles.bigLink}
+                onClick={() => setNav({ state })}
+              >
+                <h2
+                  className={`${utilStyles.headingLg} ${utilStyles.mobileHeadingLg} ${utilStyles.navItem}`}
+                >
+                  {title}
+                </h2>
+              </a>
+            </Link>
+          ))}
         </section>
         {nav === "blog" ? (
           <ul className={utilStyles.list}>

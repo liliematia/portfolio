@@ -37,7 +37,11 @@ export default function About({ children, home }) {
             className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
             alt={name}
           />
-          <h1 className={utilStyles.heading2Xl}>{name}</h1>
+          <h1
+            className={`${utilStyles.heading2Xl} ${utilStyles.mobileHeading2Xl}`}
+          >
+            {name}
+          </h1>
         </>
       </header>
       <main>
