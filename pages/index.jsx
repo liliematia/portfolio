@@ -1,22 +1,26 @@
+import CameraRoll from "../components/cameraRoll/cameraRoll";
 import Date from "../components/date/date";
+import { getCameraRollImages } from "../lib/cameraRoll";
 import { getSortedPostsData } from "../lib/posts";
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout/layout";
 import Link from "next/link";
+import React, { useState } from "react";
 import Typist from "react-typist";
 import utilStyles from "../styles/utils.module.css";
 
-import React, { useState } from "react";
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  const allCameraRollImages = getCameraRollImages();
   return {
     props: {
       allPostsData,
+      allCameraRollImages,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData, allCameraRollImages }) {
   // Sets the initial state of the homepage to show the Blog
   const [nav, setNav] = useState("blog");
 
@@ -60,7 +64,6 @@ export default function Home({ allPostsData }) {
             </a>
           </Link>
         </section>
-        {console.log(nav)}
         {nav === "blog" ? (
           <ul className={utilStyles.list}>
             {allPostsData.map(({ id, date, title }) => (
@@ -76,9 +79,7 @@ export default function Home({ allPostsData }) {
             ))}
           </ul>
         ) : (
-          <small className={utilStyles.lightText}>
-            A placeholder for a camera roll that's in the works.
-          </small>
+          <CameraRoll photos={allCameraRollImages} />
         )}
       </section>
     </Layout>
