@@ -1,21 +1,29 @@
+import CameraRoll from "../components/cameraRoll/cameraRoll";
 import Date from "../components/date/date";
+import { getCameraRollImages } from "../lib/cameraRoll";
 import { getSortedPostsData } from "../lib/posts";
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout/layout";
 import Link from "next/link";
+import React, { useState } from "react";
 import Typist from "react-typist";
 import utilStyles from "../styles/utils.module.css";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  const allCameraRollImages = getCameraRollImages();
   return {
     props: {
       allPostsData,
+      allCameraRollImages,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData, allCameraRollImages }) {
+  // Sets the initial state of the homepage to show the Blog
+  const [nav, setNav] = useState("blog");
+
   return (
     <Layout home>
       <Head>
@@ -41,20 +49,38 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        <section className={utilStyles.navbar}>
+          <Link href={""}>
+            <a className={utilStyles.bigLink} onClick={() => setNav("blog")}>
+              <h2 className={utilStyles.headingLg}>Blog</h2>
+            </a>
+          </Link>
+          <Link href={""}>
+            <a
+              className={utilStyles.bigLink}
+              onClick={() => setNav("camera-roll")}
+            >
+              <h2 className={utilStyles.headingLg}>Camera roll</h2>
+            </a>
+          </Link>
+        </section>
+        {nav === "blog" ? (
+          <ul className={utilStyles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <CameraRoll photos={allCameraRollImages} />
+        )}
       </section>
     </Layout>
   );

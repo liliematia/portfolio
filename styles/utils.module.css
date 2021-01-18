@@ -18,7 +18,7 @@
 .headingLg {
   font-size: 1.5rem;
   line-height: 1.4;
-  margin: 1rem 0;
+  margin: 1rem 2rem 1rem 0;
 }
 
 .headingMd {
@@ -54,4 +54,9 @@
 
 .bigLink {
   color: var(--main-text-color);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
 }
