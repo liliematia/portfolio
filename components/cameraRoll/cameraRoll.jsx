@@ -10,7 +10,7 @@ export default function CameraRoll(props) {
             src={pathToImage}
             alt={value}
             key={index}
-            className={styles.image}
+            className={`${styles.image} ${styles.mobileImage}`}
           />
         );
       })}
