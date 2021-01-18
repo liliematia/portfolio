@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import styles from "./layout.module.css";
+import utilStyles from "../../styles/utils.module.css";
+import Link from "next/link";
 
-const name = 'LILIE MATIA'
-export const siteTitle = 'lilie.codes'
+const name = "LILIE MATIA";
+export const siteTitle = "lilie.codes";
 
 export default function Layout({ children, home }) {
   return (
@@ -34,9 +34,7 @@ export default function Layout({ children, home }) {
             />
             <Link href="/about">
               <a className={utilStyles.bigLink}>
-                <h1 className={utilStyles.heading2Xl}>
-                  {name}
-                </h1>
+                <h1 className={utilStyles.heading2Xl}>{name}</h1>
               </a>
             </Link>
           </>
@@ -68,5 +66,5 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }

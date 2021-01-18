@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import styles from '../components/layout/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import styles from "../components/layout/layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
-const name = 'LILIE MATIA'
-export const siteTitle = 'lilie.codes'
-const intro = 'Hello! 👋🏼'
+const name = "LILIE MATIA";
+export const siteTitle = "lilie.codes";
+const intro = "Hello! 👋🏼";
 const body = `
   I'm a software engineer, aspiring minimalist, and coffee enthusiast. In many ways, I am considered to be a walking paradox.
   I am a nerd by trade but certainly not a gamer, a social introvert, a technologist into digital minimalism, a lover of color theory who only wears neutrals, an improver but not a workaholic, and a city dweller who is keen on peace and quiet.
   May this space be one of sharing, learning, ranting, explaining, questioning, and understanding.
-`
+`;
 
 export default function About({ children, home }) {
   return (
@@ -37,9 +37,7 @@ export default function About({ children, home }) {
             className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
             alt={name}
           />
-          <h1 className={utilStyles.heading2Xl}>
-            {name}
-          </h1>
+          <h1 className={utilStyles.heading2Xl}>{name}</h1>
         </>
       </header>
       <main>
@@ -54,5 +52,5 @@ export default function About({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }
