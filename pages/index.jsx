@@ -62,10 +62,7 @@ export default function Home({ allPostsData, allCameraRollImages }) {
         <section className={utilStyles.navbar}>
           {navItems.map(({ title, state }) => (
             <Link href={""}>
-              <a
-                className={utilStyles.bigLink}
-                onClick={() => setNav({ state })}
-              >
+              <a className={utilStyles.bigLink} onClick={() => setNav(state)}>
                 <h2
                   className={`${utilStyles.headingLg} ${utilStyles.mobileHeadingLg} ${utilStyles.navItem}`}
                 >
