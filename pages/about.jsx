@@ -7,9 +7,12 @@ const name = "LILIE MATIA";
 export const siteTitle = "lilie.codes";
 const intro = "Hello! 👋🏼";
 const body = `
-  I'm a software engineer, aspiring minimalist, and coffee enthusiast. In many ways, I am considered to be a walking paradox.
-  I am a nerd by trade but certainly not a gamer, a social introvert, a technologist into digital minimalism, a lover of color theory who only wears neutrals, an improver but not a workaholic, and a city dweller who is keen on peace and quiet.
-  May this space be one of sharing, learning, ranting, explaining, questioning, and understanding.
+  It's nice to meet you ✨.
+
+  I'm a software engineer 👩🏻‍💻, coffee enthusiast ☕, and probably "that person" that always asks to say "hi" to your dog. 🐶
+  Here you can find me writing about the things I care most about, which include (but are certainly not limited to)
+  societal relationships with technology, software engineering, minimalism, the things I'm reading about, and
+  self-improvement.
 `;
 
 export default function About({ children, home }) {
@@ -46,7 +49,7 @@ export default function About({ children, home }) {
       </header>
       <main>
         <h2 className={utilStyles.headingLg}>{intro}</h2>
-        <p>{body}</p>
+        <h3>{body}</h3>
       </main>
       {!home && (
         <div className={styles.backToHome}>
