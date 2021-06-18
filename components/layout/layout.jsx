@@ -29,15 +29,15 @@ export default function Layout({ children, home }) {
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
-            <Link href="/about">
-              <a className={utilStyles.bigLink}>
-                <h1
-                  className={`${utilStyles.heading2Xl} ${utilStyles.mobileHeading2Xl}`}
-                >
-                  {name}
-                </h1>
-              </a>
-            </Link>
+            {/* <Link href="/about">
+              <a className={utilStyles.bigLink}> */}
+            <h1
+              className={`${utilStyles.heading2Xl} ${utilStyles.mobileHeading2Xl}`}
+            >
+              {name}
+            </h1>
+            {/* </a>
+            </Link> */}
           </>
         ) : (
           <>

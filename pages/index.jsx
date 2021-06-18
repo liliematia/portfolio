@@ -1,3 +1,4 @@
+import About from "./about";
 import CameraRoll from "../components/cameraRoll/cameraRoll";
 import Date from "../components/date/date";
 import { getCameraRollImages } from "../lib/cameraRoll";
@@ -22,16 +23,21 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData, allCameraRollImages }) {
   // Sets the initial state of the homepage to show the Blog
-  const [nav, setNav] = useState("blog");
+  const [nav, setNav] = useState("about");
   const navItems = [
+    {
+      title: "About",
+      state: "about",
+    },
+
     {
       title: "Blog",
       state: "blog",
     },
-    {
-      title: "Camera Roll",
-      state: "camera-roll",
-    },
+    // {
+    //   title: "Camera Roll",
+    //   state: "camera-roll",
+    // },
   ];
 
   return (
@@ -39,7 +45,7 @@ export default function Home({ allPostsData, allCameraRollImages }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      {/* <section className={utilStyles.headingMd}>
         <p>
           <Typist>
             <span>software engineer</span>
@@ -57,19 +63,25 @@ export default function Home({ allPostsData, allCameraRollImages }) {
             <span>human.</span>
           </Typist>
         </p>
-      </section>
+      </section> */}
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <section className={utilStyles.navbar}>
           {navItems.map(({ title, state }) => (
-            <Link href={""}>
-              <a className={utilStyles.bigLink} onClick={() => setNav(state)}>
+            <a className={utilStyles.bigLink} onClick={() => setNav(state)}>
+              {nav === title.toLocaleLowerCase() ? (
+                <h2
+                  className={`${utilStyles.headingLgUnderline} ${utilStyles.mobileHeadingLg} ${utilStyles.navItem}`}
+                >
+                  {title}
+                </h2>
+              ) : (
                 <h2
                   className={`${utilStyles.headingLg} ${utilStyles.mobileHeadingLg} ${utilStyles.navItem}`}
                 >
                   {title}
                 </h2>
-              </a>
-            </Link>
+              )}
+            </a>
           ))}
         </section>
         {nav === "blog" ? (
@@ -87,7 +99,7 @@ export default function Home({ allPostsData, allCameraRollImages }) {
             ))}
           </ul>
         ) : (
-          <CameraRoll photos={allCameraRollImages} />
+          <About />
         )}
       </section>
     </Layout>

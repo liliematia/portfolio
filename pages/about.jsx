@@ -7,23 +7,16 @@ const name = "LILIE MATIA";
 export const siteTitle = "lilie.codes";
 const intro = "Hello! 👋🏼";
 const body = `
-  It's nice to meet you ✨.
-
-  I'm a software engineer 👩🏻‍💻, coffee enthusiast ☕, and probably "that person" that always asks to say "hi" to your dog. 🐶
-  Here you can find me writing about the things I care most about, which include (but are certainly not limited to)
-  societal relationships with technology, software engineering, minimalism, the things I'm reading about, and
-  self-improvement.
+  Nice to meet you. I'm a software engineer based in Portland, OR. Others define me as a dependable,
+  fun, and detail oriented engineer with a "can-do" attitude. They might also say that I take too
+  many pictures of my dog, but I say there's no such thing.
 `;
 
 export default function About({ children, home }) {
   return (
-    <div className={styles.container}>
-      <Head>
+    <div>
+      {/* <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
@@ -46,18 +39,19 @@ export default function About({ children, home }) {
             {name}
           </h1>
         </>
-      </header>
-      <main>
-        <h2 className={utilStyles.headingLg}>{intro}</h2>
-        <h3>{body}</h3>
-      </main>
-      {!home && (
+      </header> */}
+        {/* <h2 className={utilStyles.headingLg}>{intro}</h2> */}
+      <p>{body}</p>
+      <a href="/lilie-matia-resume.pdf" download="lilie-matia-resume">
+        <h4>Download my resume here.</h4>
+      </a>
+      {/* {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
