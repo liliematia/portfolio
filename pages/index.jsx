@@ -66,8 +66,8 @@ export default function Home({ allPostsData, allCameraRollImages }) {
       </section> */}
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <section className={utilStyles.navbar}>
-          {navItems.map(({ title, state }) => (
-            <a className={utilStyles.bigLink} onClick={() => setNav(state)}>
+          {navItems.map(({ id, title, state }) => (
+            <a className={utilStyles.bigLink} onClick={() => setNav(state)} key={id}>
               {nav === title.toLocaleLowerCase() ? (
                 <h2
                   className={`${utilStyles.headingLgUnderline} ${utilStyles.mobileHeadingLg} ${utilStyles.navItem}`}
